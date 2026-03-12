@@ -20,18 +20,18 @@ export default function ReceiptPreview({ items, receiptRef }) {
   return (
     <div
       ref={receiptRef}
-      style={{ backgroundColor: '#111827', fontFamily: 'Inter, sans-serif' }}
-      className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-700"
+      style={{ backgroundColor: '#ffffff', fontFamily: 'Inter, sans-serif' }}
+      className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200"
     >
       {/* Header */}
-      <div className="flex flex-col items-center px-6 pt-8 pb-4" style={{ backgroundColor: '#111827' }}>
+      <div className="flex flex-col items-center px-6 pt-8 pb-4" style={{ backgroundColor: '#ffffff' }}>
         {/* Logo */}
-        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-green-600 flex items-center justify-center mb-3 bg-black">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 flex items-center justify-center mb-3 bg-white">
           <Image
             src="/logo.png"
             alt="Emoz Logo"
-            width={80}
-            height={80}
+            width={96}
+            height={96}
             className="object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
@@ -39,37 +39,37 @@ export default function ReceiptPreview({ items, receiptRef }) {
             }}
           />
         </div>
-        <h1 style={{ color: '#23c55e', fontSize: '20px', fontWeight: 700, letterSpacing: '0.05em', margin: 0 }}>
+        <h1 style={{ color: '#111827', fontSize: '20px', fontWeight: 700, letterSpacing: '0.05em', margin: 0 }}>
           EMOZ
         </h1>
-        <p style={{ color: '#9ca3af', fontSize: '12px', marginTop: '4px' }}>{date}</p>
-        <p style={{ color: '#9ca3af', fontSize: '12px', marginTop: '2px' }}>{time}</p>
+        <p style={{ color: '#374151', fontSize: '12px', marginTop: '4px' }}>{date}</p>
+        <p style={{ color: '#374151', fontSize: '12px', marginTop: '2px' }}>{time}</p>
       </div>
 
       {/* Dashed divider */}
-      <div style={{ borderTop: '2px dashed #374151', margin: '0 24px' }} />
+      <div style={{ borderTop: '2px dashed #d1d5db', margin: '0 24px' }} />
 
       {/* Items table */}
-      <div className="px-6 py-4" style={{ backgroundColor: '#111827' }}>
+      <div className="px-6 py-4" style={{ backgroundColor: '#ffffff' }}>
         {/* Table header */}
         <div
           className="grid gap-2"
           style={{
             gridTemplateColumns: '1fr auto auto auto',
-            borderBottom: '1px solid #374151',
+            borderBottom: '1px solid #d1d5db',
             paddingBottom: '8px',
             marginBottom: '8px',
           }}
         >
-          <span style={{ color: '#6b7280', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Item</span>
-          <span style={{ color: '#6b7280', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>Qty</span>
-          <span style={{ color: '#6b7280', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'right' }}>Price</span>
-          <span style={{ color: '#6b7280', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'right' }}>Total</span>
+          <span style={{ color: '#374151', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Item</span>
+          <span style={{ color: '#374151', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>Qty</span>
+          <span style={{ color: '#374151', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'right' }}>Price</span>
+          <span style={{ color: '#374151', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'right' }}>Total</span>
         </div>
 
         {/* Rows */}
         {items.length === 0 ? (
-          <p style={{ color: '#4b5563', fontSize: '13px', textAlign: 'center', padding: '16px 0' }}>
+          <p style={{ color: '#6b7280', fontSize: '13px', textAlign: 'center', padding: '16px 0' }}>
             No items added yet
           </p>
         ) : (
@@ -81,15 +81,15 @@ export default function ReceiptPreview({ items, receiptRef }) {
                 gridTemplateColumns: '1fr auto auto auto',
                 paddingTop: '6px',
                 paddingBottom: '6px',
-                borderBottom: '1px solid #1f2937',
+                borderBottom: '1px solid #f3f4f6',
               }}
             >
-              <span style={{ color: '#e5e7eb', fontSize: '13px', fontWeight: 500 }}>{item.name}</span>
-              <span style={{ color: '#9ca3af', fontSize: '13px', textAlign: 'center' }}>{item.qty}</span>
-              <span style={{ color: '#9ca3af', fontSize: '13px', textAlign: 'right' }}>
+              <span style={{ color: '#111827', fontSize: '13px', fontWeight: 500 }}>{item.name}</span>
+              <span style={{ color: '#374151', fontSize: '13px', textAlign: 'center' }}>{item.qty}</span>
+              <span style={{ color: '#374151', fontSize: '13px', textAlign: 'right' }}>
                 {item.price.toLocaleString()}
               </span>
-              <span style={{ color: '#e5e7eb', fontSize: '13px', fontWeight: 600, textAlign: 'right' }}>
+              <span style={{ color: '#111827', fontSize: '13px', fontWeight: 600, textAlign: 'right' }}>
                 {(item.price * item.qty).toLocaleString()}
               </span>
             </div>
@@ -98,45 +98,45 @@ export default function ReceiptPreview({ items, receiptRef }) {
       </div>
 
       {/* Dashed divider */}
-      <div style={{ borderTop: '2px dashed #374151', margin: '0 24px' }} />
+      <div style={{ borderTop: '2px dashed #d1d5db', margin: '0 24px' }} />
 
       {/* Totals */}
-      <div className="px-6 py-4" style={{ backgroundColor: '#111827' }}>
+      <div className="px-6 py-4" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex justify-between items-center mb-2">
-          <span style={{ color: '#9ca3af', fontSize: '13px' }}>Subtotal</span>
-          <span style={{ color: '#d1d5db', fontSize: '13px' }}>PKR {subtotal.toLocaleString()}</span>
+          <span style={{ color: '#374151', fontSize: '13px' }}>Subtotal</span>
+          <span style={{ color: '#111827', fontSize: '13px' }}>PKR {subtotal.toLocaleString()}</span>
         </div>
-        <div style={{ borderTop: '1px solid #374151', marginTop: '8px', paddingTop: '8px' }} className="flex justify-between items-center">
-          <span style={{ color: '#e5e7eb', fontSize: '15px', fontWeight: 700 }}>Total Amount</span>
-          <span style={{ color: '#23c55e', fontSize: '18px', fontWeight: 800 }}>
+        <div style={{ borderTop: '1px solid #d1d5db', marginTop: '8px', paddingTop: '8px' }} className="flex justify-between items-center">
+          <span style={{ color: '#111827', fontSize: '15px', fontWeight: 700 }}>Total Amount</span>
+          <span style={{ color: '#111827', fontSize: '18px', fontWeight: 800 }}>
             PKR {subtotal.toLocaleString()}
           </span>
         </div>
       </div>
 
       {/* Dashed divider */}
-      <div style={{ borderTop: '2px dashed #374151', margin: '0 24px' }} />
+      <div style={{ borderTop: '2px dashed #d1d5db', margin: '0 24px' }} />
 
       {/* Footer */}
       <div
         className="flex flex-col items-center px-6 py-6"
-        style={{ backgroundColor: '#111827' }}
+        style={{ backgroundColor: '#ffffff' }}
       >
-        <p style={{ color: '#23c55e', fontSize: '14px', fontWeight: 600, letterSpacing: '0.04em', margin: 0 }}>
+        <p style={{ color: '#374151', fontSize: '14px', fontWeight: 600, letterSpacing: '0.04em', margin: 0 }}>
           ✦ Thanks for ordering ✦
         </p>
 
         {/* JazzCash Payment Info */}
-        <div style={{ borderTop: '1px dashed #374151', marginTop: '14px', paddingTop: '14px', width: '100%', textAlign: 'center' }}>
-          <p style={{ color: '#d1d5db', fontSize: '12px', fontWeight: 600, margin: 0 }}>
+        <div style={{ borderTop: '1px dashed #d1d5db', marginTop: '14px', paddingTop: '14px', width: '100%', textAlign: 'center' }}>
+          <p style={{ color: '#111827', fontSize: '12px', fontWeight: 600, margin: 0 }}>
             JazzCash: 03194652003
           </p>
-          <p style={{ color: '#9ca3af', fontSize: '12px', marginTop: '3px' }}>
+          <p style={{ color: '#374151', fontSize: '12px', marginTop: '3px' }}>
             Himna Zahid
           </p>
         </div>
 
-        <p style={{ color: '#4b5563', fontSize: '11px', marginTop: '10px' }}>
+        <p style={{ color: '#9ca3af', fontSize: '11px', marginTop: '10px' }}>
           www.emozofficial.com
         </p>
       </div>
